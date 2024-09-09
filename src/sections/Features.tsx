@@ -1,61 +1,59 @@
 "use client";
 
-import productImage from "@/assets/product-image.png";
-import pyramidImage from "@/assets/pyramid.png";
-import tubeImage from "@/assets/tube.png";
-import { motion, useScroll, useTransform } from "framer-motion";
-import Image from "next/image";
-import { useRef } from "react";
+import CheckIcon from "@/assets/check.svg";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
+
+const featuremap = [
+  {
+    title: "Custom Solutions",
+    description:
+      "Bespoke software development tailored exactly to your business needs, ensuring scalability, performance, and user satisfaction.",
+    inverse: false,
+  },
+  {
+    title: "Security & Compliance",
+    description:
+      "Implementing industry-standard security practices and compliance protocols to protect your data and privacy at every development phase.",
+    inverse: true,
+  },
+  {
+    title: "Agile Delivery",
+    description:
+      "Fast, iterative development processes that keep you in the loop and bring your product to market quicker without compromising quality.",
+    inverse: false,
+  },
+];
 
 export const Features = () => {
-  const sectionRef = useRef(null);
-
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  });
-
-  const translateY = useTransform(scrollYProgress, [0, 1], [200, -200]);
-
   return (
-    <section
-      ref={sectionRef}
-      className="bg-gradient-to-b from-[#FFFFFF] to-[#D2DCFF] py-24 overflow-x-clip"
-      id="features"
-    >
+    <section className="py-24 bg-white" id="projects">
       <div className="container">
         <div className="max-w-[540px] mx-auto">
-          <div className="flex justify-center">
-            <div className="text-sm inline-flex border border-[#222]/10 px-3 py-1 rounded-lg tracking-tight">
-              Boost your productivity
-            </div>
-          </div>
-          <h2 className="section-title mt-5">
-            A more effective way to track progress
-          </h2>
+          <h2 className="section-title">Features</h2>
           <p className="section-description mt-5">
-            Effortlessly turn your ideas into a fully functional, responsive,
-            SaaS website in just minutes with this template.
+            {"You imagine the project, we bring it to life."}
           </p>
         </div>
-        <div className="relative">
-          <Image src={productImage} alt="Product Image" className="mt-10" />
-          <motion.img
-            src={pyramidImage.src}
-            alt="Pyramid Image"
-            height={262}
-            width={262}
-            className="hidden md:block absolute -right-36 -top-32"
-            style={{ translateY }}
-          />
-          <motion.img
-            src={tubeImage.src}
-            alt="Tube Image"
-            height={248}
-            width={248}
-            className="hidden md:block absolute bottom-24 -left-36"
-            style={{ translateY }}
-          />
+        <div className="flex flex-col gap-6 items-center mt-10 lg:flex-row lg:items-end lg:justify-center">
+          {featuremap.map(({ title, description, inverse }) => (
+            <div
+              key={title}
+              className={cn(
+                "p-10 border border-solid border-[$F1F1F1] rounded-3xl shadow-[0_7px_14px_#EAEAEA] max-w-xs w-full",
+                { "border-black bg-black text-white": inverse === true }
+              )}
+            >
+              <div className="flex items-baseline gap-1 mt-[30px]">
+                <span className="text-4xl font-bold tracking-tighter leading-0">
+                  {title}
+                </span>
+              </div>
+
+              <div className="flex flex-col gap-5 mt-8">{description}</div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
