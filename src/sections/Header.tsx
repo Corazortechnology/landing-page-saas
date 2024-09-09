@@ -48,7 +48,7 @@ export const Header = () => {
                 Contact
               </button>
               <button onClick={redirectToCalendly}>Book an Appointment</button>
-              <Button className="tracking-tight">Get for free</Button>
+              {/* <Button className="tracking-tight">Get for free</Button> */}
             </nav>
           </div>
         </div>

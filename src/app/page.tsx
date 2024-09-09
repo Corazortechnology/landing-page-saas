@@ -3,7 +3,6 @@ import { Footer } from "@/sections/Footer";
 import { Header } from "@/sections/Header";
 import { Hero } from "@/sections/Hero";
 import { LogoTicker } from "@/sections/LogoTicker";
-// import { Projects } from "@/sections/Projects";
 import { Projects } from "@/sections/Projects";
 import { Features } from "@/sections/Features";
 import { About } from "@/sections/About";
@@ -32,9 +31,6 @@ export default function Home() {
         <Testimonials />
       </section>
       <section id="contact">
-        <CallToAction />
-      </section>
-      <section id="call-to-action">
         <CallToAction />
       </section>
       <Footer />
