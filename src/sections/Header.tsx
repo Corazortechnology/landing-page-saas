@@ -1,12 +1,11 @@
 "use client";
 import ArrowRight from "@/assets/arrow-right.svg";
-// import Logo from "@/assets/logosaas.png";
 import Logo from "../assets/logoblack.png";
 import MenuIcon from "@/assets/menu.svg";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation"; // Corrected import for app router
+import { useRouter } from "next/navigation";
 
 export const Header = () => {
   const router = useRouter();
@@ -38,9 +37,7 @@ export const Header = () => {
               <button onClick={() => scrollToSection("features")}>
                 Features
               </button>
-              <button onClick={() => scrollToSection("projects")}>
-                Projects
-              </button>
+              <button onClick={() => scrollToSection("work")}>Projects</button>
               <button onClick={() => scrollToSection("customers")}>
                 Customers
               </button>

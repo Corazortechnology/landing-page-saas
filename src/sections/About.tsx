@@ -25,21 +25,22 @@ export const About = () => {
     >
       <div className="container">
         <div className="max-w-[540px] mx-auto">
-          <div className="flex justify-center">
+          {/* <div className="flex justify-center">
             <div className="text-sm inline-flex border border-[#222]/10 px-3 py-1 rounded-lg tracking-tight">
               Boost your productivity
             </div>
-          </div>
-          <h2 className="section-title mt-5">
-            A more effective way to track progress
-          </h2>
+          </div> */}
+          <h2 className="section-title mt-5">Our Company !</h2>
           <p className="section-description mt-5">
-            Effortlessly turn your ideas into a fully functional, responsive,
-            SaaS website in just minutes with this template.
+            Welcome to our company! We are dedicated to delivering top-notch
+            digital solutions to meet your business needs. Our team of experts
+            works diligently to provide customized software development,
+            ensuring your project is executed with precision and care. Connect
+            with us to explore how we can bring your aboutuss to life.
           </p>
         </div>
         <div className="relative">
-          <Image src={productImage} alt="Product Image" className="mt-10" />
+          {/* <Image src={productImage} alt="Product Image" className="mt-10" /> */}
           <motion.img
             src={pyramidImage.src}
             alt="Pyramid Image"

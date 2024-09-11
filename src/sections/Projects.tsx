@@ -6,10 +6,10 @@
 
 export const Projects = () => {
   return (
-    <section className="py-24 bg-white" id="features">
+    <section className="py-24 bg-white" id="work">
       <div className="container">
         <div className="max-w-[540px] mx-auto text-center">
-          <h2 className="section-title">Streamlined for easy management</h2>
+          <h2 className="section-title">Our Projects !</h2>
           <p className="section-description mt-5">
             Enjoy customizable lists, teamwork tools, and smart tracking all in
             one place. Set tasks, get reminders, and see your progress simply
