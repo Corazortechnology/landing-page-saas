@@ -169,7 +169,7 @@ export const CallToAction = () => {
           <h2 className="section-title">Contact Us</h2>
           <p className="section-description mt-5">
             Have a question or want to get in touch? Fill out the form below and
-            we'll get back to you shortly.
+            we&apos;ll get back to you shortly.
           </p>
           <motion.img
             src={starImage.src}
