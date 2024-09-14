@@ -33,17 +33,13 @@ export const CallToAction = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch(
-        "https://landing-page-saas-pi.vercel.app/api/contact",
-        {
-          //"http://localhost:5000/api/contact"
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData), // Sends formData with date and time
-        }
-      );
+      const response = await fetch("http://localhost:5000/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData), // Sends formData with date and time
+      });
 
       const data = await response.json();
 
