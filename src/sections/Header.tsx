@@ -13,20 +13,9 @@ export const Header = () => {
   const scrollToSection = (sectionId: string) => {
     router.push(`/#${sectionId}`);
   };
-  const redirectToCalendly = () => {
-    router.push("https://calendly.com/gauranshigupta2000");
-  };
+
   return (
     <header className="sticky top-0 backdrop-blur-sm z-20">
-      {/* <div className="flex justify-center items-center py-3 bg-black text-white text-sm gap-3">
-        <p className="text-white/60 hidden md:block">
-          Streamline your workflow and boost your productivity
-        </p>
-        <div className="inline-flex gap-1 items-center">
-          <p>Get started for free</p>
-          <ArrowRight className="size-4 inline-flex justify-center items-center" />
-        </div>
-      </div> */}
       <div className="py-5">
         <div className="container">
           <div className="flex items-center justify-between">
@@ -44,8 +33,6 @@ export const Header = () => {
               <button onClick={() => scrollToSection("contact")}>
                 Contact
               </button>
-              <button onClick={redirectToCalendly}>Book an Appointment</button>
-              {/* <Button className="tracking-tight">Get for free</Button> */}
             </nav>
           </div>
         </div>
