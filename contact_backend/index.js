@@ -42,7 +42,7 @@ async function createGoogleMeetEvent(name, email, startDateTime, endDateTime) {
     description: `Meeting to discuss query from ${name}`,
     start: {
       dateTime: startDateTime,
-      timeZone: "Asia/Kolkata", // Adjust timezone if needed
+      timeZone: "Asia/Kolkata",
     },
     end: {
       dateTime: endDateTime,
@@ -82,11 +82,13 @@ app.post("/api/contact", async (req, res) => {
     await newContact.save();
 
     // Combine date and time to create a Date object for event start time
-    const startDateTime = new Date(`${date}T${time}:00`);
+    // Combine date and time to create a Date object for event start time
+    const startDateTime = new Date(`${date}T${time}:00.000Z`); // Ensure UTC time
 
     // Set the meeting to last 30 minutes (or adjust as needed)
     const endDateTime = new Date(startDateTime);
     endDateTime.setMinutes(endDateTime.getMinutes() + 30); // Default 30-minute duration
+
     console.log("start", startDateTime);
     console.log("end", endDateTime);
     // Create Google Meet event with the provided date and time
