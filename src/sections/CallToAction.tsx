@@ -21,54 +21,45 @@ export const CallToAction = () => {
     name: "",
     email: "",
     query: "",
+    date: "",
+    time: "",
   });
 
   const handleChange = (e: { target: { name: any; value: any } }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // const handleSubmit = async (e: { preventDefault: () => void }) => {
-  //   e.preventDefault();
-
-  //   const response = await fetch("http://localhost:5000/api/book-meet", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(formData),
-  //   });
-
-  //   const result = await response.json();
-  //   if (response.ok) {
-  //     console.log("Meeting booked:", result.meetLink);
-  //     alert("Meeting booked! Google Meet link: " + result.meetLink);
-  //   } else {
-  //     console.error("Error booking meeting:", result.error);
-  //     alert("Failed to book meeting.");
-  //   }
-  // };
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
 
     try {
       const response = await fetch("http://localhost:5000/api/contact", {
-        // Replace with your API URL
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData), // Send form data as JSON
+        body: JSON.stringify(formData), // Sends formData with date and time
       });
 
+      const data = await response.json();
+
       if (response.ok) {
-        const data = await response.json();
-        alert(data.message); // Show success message
-        setFormData({ name: "", email: "", query: "" }); // Reset form
+        alert(
+          `Meeting Scheduled! Here is your Google Meet link: ${data.meetLink}`
+        );
+        setFormData({
+          name: "",
+          email: "",
+          query: "",
+          date: "",
+          time: "",
+        });
       } else {
-        alert("Failed to submit the form");
+        alert(`Failed to schedule the meeting: ${data.message}`);
       }
     } catch (error) {
-      console.error("Error submitting the form:", error);
+      console.error("Error submitting form:", error);
+      alert("Something went wrong");
     }
   };
 
@@ -95,46 +86,57 @@ export const CallToAction = () => {
         </div>
 
         {/* Contact Form */}
-        <form className="mt-10 max-w-lg mx-auto" onSubmit={handleSubmit}>
+        <form className="max-w-lg mx-auto " onSubmit={handleSubmit}>
           <div className="mb-6">
-            <label htmlFor="name" className="section-description mt-5">
+            <label
+              htmlFor="name"
+              className="block text-gray-700 font-bold mb-2"
+            >
               Name
             </label>
             <input
               type="text"
               id="name"
               name="name"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 shadow-md max-w-lg mx-auto"
+              className="bg-gray-100 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-4 shadow-md"
               placeholder="Your Name"
               value={formData.name}
               onChange={handleChange}
               required
             />
           </div>
+
           <div className="mb-6">
-            <label htmlFor="email" className="section-description mt-5">
+            <label
+              htmlFor="email"
+              className="block text-gray-700 font-bold mb-2"
+            >
               Email
             </label>
             <input
               type="email"
               id="email"
               name="email"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 shadow-md max-w-lg mx-auto"
+              className="bg-gray-100 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-4 shadow-md"
               placeholder="your.email@example.com"
               value={formData.email}
               onChange={handleChange}
               required
             />
           </div>
+
           <div className="mb-6">
-            <label htmlFor="query" className="section-description mt-5">
+            <label
+              htmlFor="query"
+              className="block text-gray-700 font-bold mb-2"
+            >
               Your Query
             </label>
             <textarea
               id="query"
               name="query"
               rows={4}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 shadow-md max-w-lg mx-auto"
+              className="bg-gray-100 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-4 shadow-md"
               placeholder="Type your message here..."
               value={formData.query}
               onChange={handleChange}
@@ -142,12 +144,49 @@ export const CallToAction = () => {
             />
           </div>
 
-          <div className="flex gap-2 mt-10 justify-center">
-            <Button type="submit">Submit</Button>
-            <Button variant="ghost" className="gap-1">
-              <span>Learn more</span>
-              <ArrowRight className="size-5" />
-            </Button>
+          <div className="mb-6">
+            <label
+              htmlFor="date"
+              className="block text-gray-700 font-bold mb-2"
+            >
+              Meeting Date
+            </label>
+            <input
+              type="date"
+              id="date"
+              name="date"
+              className="bg-gray-100 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-4 shadow-md"
+              value={formData.date}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className="mb-6">
+            <label
+              htmlFor="time"
+              className="block text-gray-700 font-bold mb-2"
+            >
+              Meeting Time
+            </label>
+            <input
+              type="time"
+              id="time"
+              name="time"
+              className="bg-gray-100 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-4 shadow-md"
+              value={formData.time}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className="flex justify-center gap-2 mt-6">
+            <button
+              type="submit"
+              className="bg-black text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300"
+            >
+              Submit
+            </button>
           </div>
         </form>
 

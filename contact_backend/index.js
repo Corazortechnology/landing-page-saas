@@ -34,22 +34,18 @@ oAuth2Client.setCredentials({
 });
 
 // Function to create a Google Meet event
-async function createGoogleMeetEvent(name, email) {
+async function createGoogleMeetEvent(name, email, startDateTime, endDateTime) {
   const calendar = google.calendar({ version: "v3", auth: oAuth2Client });
-
-  const eventStartTime = new Date();
-  const eventEndTime = new Date();
-  eventEndTime.setMinutes(eventStartTime.getMinutes() + 30); // Set a 30-min meeting
 
   const event = {
     summary: `Meeting with ${name}`,
     description: `Meeting to discuss query from ${name}`,
     start: {
-      dateTime: eventStartTime,
-      timeZone: "Asia/Kolkata",
+      dateTime: startDateTime,
+      timeZone: "Asia/Kolkata", // Adjust timezone if needed
     },
     end: {
-      dateTime: eventEndTime,
+      dateTime: endDateTime,
       timeZone: "Asia/Kolkata",
     },
     attendees: [{ email: email }, { email: "Anant@corazor.com" }],
@@ -78,15 +74,28 @@ async function createGoogleMeetEvent(name, email) {
 
 // Contact form submission route
 app.post("/api/contact", async (req, res) => {
-  const { name, email, query } = req.body;
+  const { name, email, query, date, time } = req.body;
 
   try {
     // Save contact form details to MongoDB
     const newContact = new Contact({ name, email, query });
     await newContact.save();
 
-    // Create Google Meet event
-    const meetLink = await createGoogleMeetEvent(name, email);
+    // Combine date and time to create a Date object for event start time
+    const startDateTime = new Date(`${date}T${time}:00`);
+
+    // Set the meeting to last 30 minutes (or adjust as needed)
+    const endDateTime = new Date(startDateTime);
+    endDateTime.setMinutes(endDateTime.getMinutes() + 30); // Default 30-minute duration
+    console.log("start", startDateTime);
+    console.log("end", endDateTime);
+    // Create Google Meet event with the provided date and time
+    const meetLink = await createGoogleMeetEvent(
+      name,
+      email,
+      startDateTime,
+      endDateTime
+    );
 
     // Respond with success and meeting link
     res.status(201).json({
