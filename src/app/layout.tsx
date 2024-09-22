@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 const dmSans = DM_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Light Saas Landing Page",
+  title: "Corazor Technology",
   description: "Template by Harindu",
 };
 
