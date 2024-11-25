@@ -28,20 +28,13 @@ export const Hero = () => {
               Version 2.0 is here
             </div> */}
             <h1 className="text-5xl md:text-7xl font-bold tracking-tighter bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text mt-6">
-              CORAZOR TECHNOLOGY
+            Corazor Technology
             </h1>
             <p className="text-xl text-[#010D3E] tracking-tight mt-6">
               {
-                "Celebrate the joy of accomplishment with an app designed to track your progress, motivate your efforts, and celebrate your success."
+                "Transforming Ideas into Reality"
               }
             </p>
-            <div className="flex gap-1 items-center mt-[30px]">
-              <Button>Get for free</Button>
-              <Button variant="ghost" className="gap-1">
-                <span>Learn more</span>
-                <ArrowRight className="size-5" />
-              </Button>
-            </div>
           </div>
           <div className="mt-20 md:mt-0 md:h-[648px] md:flex-1 relative">
             <motion.img

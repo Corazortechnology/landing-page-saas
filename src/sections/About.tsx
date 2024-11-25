@@ -32,11 +32,9 @@ export const About = () => {
           </div> */}
           <h2 className="section-title mt-5">Our Company !</h2>
           <p className="section-description mt-5">
-            Welcome to our company! We are dedicated to delivering top-notch
-            digital solutions to meet your business needs. Our team of experts
-            works diligently to provide customized software development,
-            ensuring your project is executed with precision and care. Connect
-            with us to explore how we can bring your aboutuss to life.
+            Corazor Technology is a premier provider of comprehensive IT
+            services. Our mission is to deliver innovative and reliable
+            technology solutions that drive success for our clients.
           </p>
         </div>
         <div className="relative">

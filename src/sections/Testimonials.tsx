@@ -15,58 +15,74 @@ import React from "react";
 
 const testimonials = [
   {
-    text: "As a seasoned designer always on the lookout for innovative tools, Framer.com instantly grabbed my attention.",
-    imageSrc: avatar1.src,
-    name: "Jamie Rivera",
-    username: "@jamietechguru00",
+    text: "I am very fortunate to have found the Corazor team for my project.The entire team Gaurav, Vaibhav, Anant, and their mentor Tushar was truly amazing.They were incredibly positive about everything; whatever features we required, they assured us with It’s our responsibility and delivered as promised. What sets them apart from others in the market is their genuine commitment to their values rather than just financial gain. It has been a pleasure working with you, and I look forward to future collaborations.",
+    imageSrc: "",
+    name: "Ankush Narag",
   },
   {
-    text: "Our team's productivity has skyrocketed since we started using this tool. ",
-    imageSrc: avatar2.src,
-    name: "Josh Smith",
-    username: "@jjsmith",
+    text: "Happy to work with Corazor. Project executions and workflows are adhered as per situational suitability.It's very pleasing to work in a calming yet achieving environment.Thank you Tushar sir for your sweet and simple terms. Long term plans ahead are feeling attainable",
+    imageSrc: "",
+    name: "Gagan M G",
+    // username: "@jjsmith",
   },
   {
-    text: "This app has completely transformed how I manage my projects and deadlines.",
-    imageSrc: avatar3.src,
-    name: "Morgan Lee",
-    username: "@morganleewhiz",
+    text: "Working with Corazor Technology has been an amazing experience! Their app development team created a seamless mobile app that our customers love.Highly recommend them!",
+    imageSrc: "",
+    name: "Rohan Mehta",
+    // username: "@morganleewhiz",
   },
   {
-    text: "I was amazed at how quickly we were able to integrate this app into our workflow.",
-    imageSrc: avatar4.src,
-    name: "Casey Jordan",
-    username: "@caseyj",
+    text: "The website Corazor Technology built for our business is exactly what we needed—responsive, fast, and visually stunning. Their professionalism and dedication stood out from day one!",
+    imageSrc: "",
+    name: "Aditi Singh",
+   
   },
   {
-    text: "Planning and executing events has never been easier. This app helps me keep track of all the moving parts, ensuring nothing slips through the cracks.",
-    imageSrc: avatar5.src,
-    name: "Taylor Kim",
-    username: "@taylorkimm",
+    text: "I was looking for a reliable AI partner, and Corazor Technology delivered beyond my expectations. Their AI solutions have optimized our business processes like never before.",
+    imageSrc: "",
+    name: "Vikram Patel",
+   
   },
   {
-    text: "The customizability and integration capabilities of this app are top-notch.",
-    imageSrc: avatar6.src,
-    name: "Riley Smith",
-    username: "@rileysmith1",
+    text: "Corazor Technology made the blockchain integration process smooth and easy. Their expertise and ability to explain complex concepts in simple terms were impressive. Truly top-notch!",
+    imageSrc: "",
+    name: "Sana Kapoor",
   },
   {
-    text: "Adopting this app for our team has streamlined our project management and improved communication across the board.",
-    imageSrc: avatar7.src,
-    name: "Jordan Patels",
-    username: "@jpatelsdesign",
+    text: "The service from Corazor Technology was exceptional! Their team worked irelessly to deliver our project on time, and the final product exceeded all expectations. Great job!" ,
+    imageSrc: "",
+    name: "Ankit Desai",
+    
   },
   {
-    text: "With this app, we can easily assign tasks, track progress, and manage documents all in one place.",
-    imageSrc: avatar8.src,
-    name: "Sam Dawson",
-    username: "@dawsontechtips",
+    text: "The mobile app Corazor Technology built for us is flawless. Their team exceeded our expectations, delivering high-quality work within the deadline.Looking forward to more collaborations!",
+    imageSrc: "",
+    name: "David Roberts",
+    
   },
   {
-    text: "Its user-friendly interface and robust features support our diverse needs.",
-    imageSrc: avatar9.src,
-    name: "Casey Harper",
-    username: "@casey09",
+    text:"Corazor Technology revamped our website, and it has dramatically improved our online presence. The site is now faster, more attractive, and generates more leads than ever before.",
+    imageSrc:"",
+    name: "Emily Turner",
+    
+  },
+  {
+    text: "We needed help with blockchain implementation, and Corazor Technology delivered a solution that revolutionized our operations. Their expertise in blockchain is remarkable!",
+    imageSrc:"",
+    name: "Carlos Mendez",
+    
+  },
+  {
+    text: "Corazor Technology’s AI solutions have completely transformed how we interact with our customers. Our new chatbot has been a game-changer for customer service!",
+    imageSrc:"",
+    name: "Sophie White",
+    
+  },
+  {
+    text: "Their professionalism and knowledge in app development are outstanding.Corazor Technology delivered a highly functional app that met all our business needs. I highly recommend them!",
+    imageSrc:"",
+    name: "Mark Wilson",
+    
   },
 ];
 

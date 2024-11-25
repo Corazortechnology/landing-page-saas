@@ -65,150 +65,560 @@ export const CallToAction = () => {
       alert("Something went wrong");
     }
   };
-
   return (
     <section
       ref={sectionRef}
       className="bg-gradient-to-b from-white to-[#D2DCFF] py-24 overflow-x-clip"
       id="contact"
     >
-      <div className="container">
-        <div className="section-heading relative">
-          <h2 className="section-title">Contact Us</h2>
-          <p className="section-description mt-5">
-            Have a question or want to get in touch? Fill out the form below and
-            we&apos;ll get back to you shortly.
-          </p>
-          <motion.img
-            src={starImage.src}
-            alt="Star Image"
-            width={360}
-            className="absolute -left-[350px] -top-[137px]"
-            style={{ translateY: translateY }}
-          />
+      <div className="container mx-auto flex flex-col md:flex-row items-center">
+        {/* Contact Form positioned to the left */}
+        <div className="md:w-1/2 w-full md:pr-8">
+          <div className="section-heading relative">
+            <h2 className="section-title">Contact Us</h2>
+            <p className="section-description mt-5">
+              Have a question or want to get in touch? Fill out the form below and
+              we&apos;ll get back to you shortly.
+            </p>
+            
+          </div>
+  
+          <form
+            className="max-w-lg bg-white bg-opacity-80 rounded-lg p-6 shadow-lg bg-transparent md:ml-16"
+            onSubmit={handleSubmit}
+          >
+            {/* Form fields */}
+            <div className="mb-6">
+              <label htmlFor="name" className="block text-gray-700 font-bold mb-2">
+                Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                className="bg-gray-100 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-800 block w-full p-4 shadow-md"
+                placeholder="Your Name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
+            </div>
+  
+            <div className="mb-6">
+              <label htmlFor="email" className="block text-gray-700 font-bold mb-2">
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                className="bg-gray-100 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-4 shadow-md"
+                placeholder="your.email@example.com"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+            </div>
+  
+            <div className="mb-6">
+              <label htmlFor="query" className="block text-gray-700 font-bold mb-2">
+                Your Query
+              </label>
+              <textarea
+                id="query"
+                name="query"
+                rows={4}
+                className="bg-gray-100 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-4 shadow-md"
+                placeholder="Type your message here..."
+                value={formData.query}
+                onChange={handleChange}
+                required
+              />
+            </div>
+  
+            <div className="mb-6">
+              <label htmlFor="date" className="block text-gray-700 font-bold mb-2">
+                Meeting Date
+              </label>
+              <input
+                type="date"
+                id="date"
+                name="date"
+                className="bg-gray-100 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-4 shadow-md"
+                value={formData.date}
+                onChange={handleChange}
+                required
+              />
+            </div>
+  
+            <div className="mb-6">
+              <label htmlFor="time" className="block text-gray-700 font-bold mb-2">
+                Meeting Time
+              </label>
+              <input
+                type="time"
+                id="time"
+                name="time"
+                className="bg-gray-100 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-4 shadow-md"
+                value={formData.time}
+                onChange={handleChange}
+                required
+              />
+            </div>
+  
+            <div className="flex justify-center gap-2 mt-6">
+              <button
+                type="submit"
+                className="bg-black text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300"
+              >
+                Submit
+              </button>
+            </div>
+          </form>
         </div>
-
-        {/* Contact Form */}
-        <form className="max-w-lg mx-auto " onSubmit={handleSubmit}>
-          <div className="mb-6">
-            <label
-              htmlFor="name"
-              className="block text-gray-700 font-bold mb-2"
-            >
-              Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              className="bg-gray-100 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-4 shadow-md"
-              placeholder="Your Name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          <div className="mb-6">
-            <label
-              htmlFor="email"
-              className="block text-gray-700 font-bold mb-2"
-            >
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              className="bg-gray-100 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-4 shadow-md"
-              placeholder="your.email@example.com"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          <div className="mb-6">
-            <label
-              htmlFor="query"
-              className="block text-gray-700 font-bold mb-2"
-            >
-              Your Query
-            </label>
-            <textarea
-              id="query"
-              name="query"
-              rows={4}
-              className="bg-gray-100 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-4 shadow-md"
-              placeholder="Type your message here..."
-              value={formData.query}
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          <div className="mb-6">
-            <label
-              htmlFor="date"
-              className="block text-gray-700 font-bold mb-2"
-            >
-              Meeting Date
-            </label>
-            <input
-              type="date"
-              id="date"
-              name="date"
-              className="bg-gray-100 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-4 shadow-md"
-              value={formData.date}
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          <div className="mb-6">
-            <label
-              htmlFor="time"
-              className="block text-gray-700 font-bold mb-2"
-            >
-              Meeting Time
-            </label>
-            <input
-              type="time"
-              id="time"
-              name="time"
-              className="bg-gray-100 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-4 shadow-md"
-              value={formData.time}
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          <div className="flex justify-center gap-2 mt-6">
-            <button
-              type="submit"
-              className="bg-black text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300"
-            >
-              Submit
-            </button>
-          </div>
-        </form>
-
-        {/* Spring Image moved below the form */}
-        {/* <motion.img
-          src={springImage.src}
-          alt="Spring Image"
-          width={360}
-          className="hidden md:block absolute -right-32 -left-30 -top-92"
-          style={{ translateY: translateY }}
-        /> */}
+  
+        {/* Right Section with Character Image */}
         <motion.img
           src={springImage.src}
           alt="Spring Image"
-          width={360} // Adjust width as necessary
+          width={360}
           className="absolute right-[-2px] top-82 md:block hidden"
           style={{ translateY: translateY }}
         />
       </div>
     </section>
   );
+  
+
+  
 };
+
+
+
+// return (
+//   <section
+//     ref={sectionRef}
+//     className="bg-gradient-to-b from-white to-[#D2DCFF] py-24 overflow-x-clip"
+//     id="contact"
+//   >
+//     <div className="container">
+//       <div className="section-heading relative">
+//         <h2 className="section-title">Contact Us</h2>
+//         <p className="section-description mt-5">
+//           Have a question or want to get in touch? Fill out the form below and
+//           we&apos;ll get back to you shortly.
+//         </p>
+//         <motion.img
+//           src={starImage.src}
+//           alt="Star Image"
+//           width={360}
+//           className="absolute -left-[350px] -top-[137px]"
+//           style={{ translateY: translateY }}
+//         />
+//       </div>
+
+//       {/* Contact Form */}
+//       <form className="max-w-lg mx-auto " onSubmit={handleSubmit}>
+//         <div className="mb-6">
+//           <label
+//             htmlFor="name"
+//             className="block text-gray-700 font-bold mb-2"
+//           >
+//             Name
+//           </label>
+//           <input
+//             type="text"
+//             id="name"
+//             name="name"
+//             className="bg-gray-100 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-4 shadow-md"
+//             placeholder="Your Name"
+//             value={formData.name}
+//             onChange={handleChange}
+//             required
+//           />
+//         </div>
+
+//         <div className="mb-6">
+//           <label
+//             htmlFor="email"
+//             className="block text-gray-700 font-bold mb-2"
+//           >
+//             Email
+//           </label>
+//           <input
+//             type="email"
+//             id="email"
+//             name="email"
+//             className="bg-gray-100 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-4 shadow-md"
+//             placeholder="your.email@example.com"
+//             value={formData.email}
+//             onChange={handleChange}
+//             required
+//           />
+//         </div>
+
+//         <div className="mb-6">
+//           <label
+//             htmlFor="query"
+//             className="block text-gray-700 font-bold mb-2"
+//           >
+//             Your Query
+//           </label>
+//           <textarea
+//             id="query"
+//             name="query"
+//             rows={4}
+//             className="bg-gray-100 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-4 shadow-md"
+//             placeholder="Type your message here..."
+//             value={formData.query}
+//             onChange={handleChange}
+//             required
+//           />
+//         </div>
+
+//         <div className="mb-6">
+//           <label
+//             htmlFor="date"
+//             className="block text-gray-700 font-bold mb-2"
+//           >
+//             Meeting Date
+//           </label>
+//           <input
+//             type="date"
+//             id="date"
+//             name="date"
+//             className="bg-gray-100 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-4 shadow-md"
+//             value={formData.date}
+//             onChange={handleChange}
+//             required
+//           />
+//         </div>
+
+//         <div className="mb-6">
+//           <label
+//             htmlFor="time"
+//             className="block text-gray-700 font-bold mb-2"
+//           >
+//             Meeting Time
+//           </label>
+//           <input
+//             type="time"
+//             id="time"
+//             name="time"
+//             className="bg-gray-100 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-4 shadow-md"
+//             value={formData.time}
+//             onChange={handleChange}
+//             required
+//           />
+//         </div>
+
+//         <div className="flex justify-center gap-2 mt-6">
+//           <button
+//             type="submit"
+//             className="bg-black text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300"
+//           >
+//             Submit
+//           </button>
+//         </div>
+//       </form>
+
+//       {/* Spring Image moved below the form */}
+//       {/* <motion.img
+//         src={springImage.src}
+//         alt="Spring Image"
+//         width={360}
+//         className="hidden md:block absolute -right-32 -left-30 -top-92"
+//         style={{ translateY: translateY }}
+//       /> */}
+//       <motion.img
+//         src={springImage.src}
+//         alt="Spring Image"
+//         width={360} // Adjust width as necessary
+//         className="absolute right-[-2px] top-82 md:block hidden"
+//         style={{ translateY: translateY }}
+//       />
+//     </div>
+//   </section>
+// );
+
+
+
+
+// return (
+//   <section
+//     ref={sectionRef}
+//     className="bg-gradient-to-b from-white to-[#D2DCFF] py-24 overflow-x-clip"
+//     id="contact"
+//   >
+//     <div className="container relative flex justify-between items-center">
+//       <div className="section-heading relative w-1/2">
+//         <h2 className="section-title">Contact Us</h2>
+//         <p className="section-description mt-5">
+//           Have a question or want to get in touch? Fill out the form below and
+//           we&apos;ll get back to you shortly.
+//         </p>
+//         <motion.img
+//           src={starImage.src}
+//           alt="Star Image"
+//           width={360}
+//           className="absolute -left-[350px] -top-[137px]"
+//           style={{ translateY: translateY }}
+//         />
+//       </div>
+
+//       {/* Contact Form with adjustments */}
+//       <form
+//         className="max-w-lg w-1/2 mx-0 bg-opacity-90 bg-gray-50 rounded-lg p-6 shadow-lg backdrop-blur-sm"
+//         onSubmit={handleSubmit}
+//         style={{ transform: "translateX(-10%)" }}
+//       >
+//         <div className="mb-6">
+//           <label htmlFor="name" className="block text-gray-700 font-bold mb-2">
+//             Name
+//           </label>
+//           <input
+//             type="text"
+//             id="name"
+//             name="name"
+//             className="bg-gray-100 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-4 shadow-md"
+//             placeholder="Your Name"
+//             value={formData.name}
+//             onChange={handleChange}
+//             required
+//           />
+//         </div>
+
+//         <div className="mb-6">
+//           <label htmlFor="email" className="block text-gray-700 font-bold mb-2">
+//             Email
+//           </label>
+//           <input
+//             type="email"
+//             id="email"
+//             name="email"
+//             className="bg-gray-100 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-4 shadow-md"
+//             placeholder="your.email@example.com"
+//             value={formData.email}
+//             onChange={handleChange}
+//             required
+//           />
+//         </div>
+
+//         <div className="mb-6">
+//           <label htmlFor="query" className="block text-gray-700 font-bold mb-2">
+//             Your Query
+//           </label>
+//           <textarea
+//             id="query"
+//             name="query"
+//             rows={4}
+//             className="bg-gray-100 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-4 shadow-md"
+//             placeholder="Type your message here..."
+//             value={formData.query}
+//             onChange={handleChange}
+//             required
+//           />
+//         </div>
+
+//         <div className="mb-6">
+//           <label htmlFor="date" className="block text-gray-700 font-bold mb-2">
+//             Meeting Date
+//           </label>
+//           <input
+//             type="date"
+//             id="date"
+//             name="date"
+//             className="bg-gray-100 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-4 shadow-md"
+//             value={formData.date}
+//             onChange={handleChange}
+//             required
+//           />
+//         </div>
+
+//         <div className="mb-6">
+//           <label htmlFor="time" className="block text-gray-700 font-bold mb-2">
+//             Meeting Time
+//           </label>
+//           <input
+//             type="time"
+//             id="time"
+//             name="time"
+//             className="bg-gray-100 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-4 shadow-md"
+//             value={formData.time}
+//             onChange={handleChange}
+//             required
+//           />
+//         </div>
+
+//         <div className="flex justify-center gap-2 mt-6">
+//           <button
+//             type="submit"
+//             className="bg-black text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300"
+//           >
+//             Submit
+//           </button>
+//         </div>
+//       </form>
+
+//       {/* Character Illustration */}
+//       <div className="hidden md:block w-1/3 absolute right-0 top-0 mt-24">
+//         <img
+//           src="/path-to-character-image.png" // Replace with your character image path
+//           alt="Character illustration filling form on laptop"
+//           className="w-full h-auto"
+//         />
+//       </div>
+
+//       <motion.img
+//         src={springImage.src}
+//         alt="Spring Image"
+//         width={360} // Adjust width as necessary
+//         className="absolute right-[-2px] top-82 md:block hidden"
+//         style={{ translateY: translateY }}
+//       />
+//     </div>
+//   </section>
+// );
+
+
+// return (
+//   <section
+//     ref={sectionRef}
+//     className="bg-gradient-to-b from-white to-[#D2DCFF] py-24 overflow-x-clip "
+//     id="contact"
+//   >
+//     <div className="container">
+//       <div className="section-heading relative">
+//         <h2 className="section-title">Contact Us</h2>
+//         <p className="section-description mt-5">
+//           Have a question or want to get in touch? Fill out the form below and
+//           we&apos;ll get back to you shortly.
+//         </p>
+//         <motion.img
+//           src={starImage.src}
+//           alt="Star Image"
+//           width={360}
+//           className="absolute -left-[350px] -top-[137px]"
+//           style={{ translateY: translateY }}
+//         />
+//       </div>
+
+//       {/* Contact Form with transparency */}
+//       <form
+//         className="max-w-lg mx-auto bg-white bg-opacity-80 rounded-lg p-6 shadow-lg bg-transparent bg-gradient-to-l"
+//         onSubmit={handleSubmit}
+//       >
+//         <div className="mb-6">
+//           <label
+//             htmlFor="name"
+//             className="block text-gray-700 font-bold mb-2"
+//           >
+//             Name
+//           </label>
+//           <input
+//             type="text"
+//             id="name"
+//             name="name"
+//             className="bg-gray-100 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-800 block w-full p-4 shadow-md"
+//             placeholder="Your Name"
+//             value={formData.name}
+//             onChange={handleChange}
+//             required
+//           />
+//         </div>
+
+//         <div className="mb-6">
+//           <label
+//             htmlFor="email"
+//             className="block text-gray-700 font-bold mb-2"
+//           >
+//             Email
+//           </label>
+//           <input
+//             type="email"
+//             id="email"
+//             name="email"
+//             className="bg-gray-100 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-4 shadow-md"
+//             placeholder="your.email@example.com"
+//             value={formData.email}
+//             onChange={handleChange}
+//             required
+//           />
+//         </div>
+
+//         <div className="mb-6">
+//           <label
+//             htmlFor="query"
+//             className="block text-gray-700 font-bold mb-2"
+//           >
+//             Your Query
+//           </label>
+//           <textarea
+//             id="query"
+//             name="query"
+//             rows={4}
+//             className="bg-gray-100 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-4 shadow-md"
+//             placeholder="Type your message here..."
+//             value={formData.query}
+//             onChange={handleChange}
+//             required
+//           />
+//         </div>
+
+//         <div className="mb-6">
+//           <label
+//             htmlFor="date"
+//             className="block text-gray-700 font-bold mb-2"
+//           >
+//             Meeting Date
+//           </label>
+//           <input
+//             type="date"
+//             id="date"
+//             name="date"
+//             className="bg-gray-100 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-4 shadow-md"
+//             value={formData.date}
+//             onChange={handleChange}
+//             required
+//           />
+//         </div>
+
+//         <div className="mb-6">
+//           <label
+//             htmlFor="time"
+//             className="block text-gray-700 font-bold mb-2"
+//           >
+//             Meeting Time
+//           </label>
+//           <input
+//             type="time"
+//             id="time"
+//             name="time"
+//             className="bg-gray-100 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-4 shadow-md"
+//             value={formData.time}
+//             onChange={handleChange}
+//             required
+//           />
+//         </div>
+
+//         <div className="flex justify-center gap-2 mt-6">
+//           <button
+//             type="submit"
+//             className="bg-black text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300"
+//           >
+//             Submit
+//           </button>
+//         </div>
+//       </form>
+
+//       {/* Spring Image moved below the form */}
+//       <motion.img
+//         src={springImage.src}
+//         alt="Spring Image"
+//         width={360}
+//         className="absolute right-[-2px] top-82 md:block hidden"
+//         style={{ translateY: translateY }}
+//       />
+//     </div>
+//   </section>
+// );
