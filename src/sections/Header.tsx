@@ -22,13 +22,13 @@ export const Header = () => {
             <Image src={Logo} alt="Saas Logo" height={50} width={50} />
             <MenuIcon className="size-4 md:hidden" />
             <nav className="hidden md:flex gap-6 text-black/60 items-center">
-              <button onClick={() => scrollToSection("about")}>About</button>
+              <button onClick={() => scrollToSection("about")}>Who we are</button>
               <button onClick={() => scrollToSection("features")}>
-                Features
+                Insights
               </button>
-              <button onClick={() => scrollToSection("work")}>Projects</button>
+              <button onClick={() => scrollToSection("work")}>What we do</button>
               <button onClick={() => scrollToSection("customers")}>
-                Customers
+                Clients
               </button>
               <button onClick={() => scrollToSection("contact")}>
                 Contact
