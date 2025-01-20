@@ -1,38 +1,152 @@
 "use client";
-import ArrowRight from "@/assets/arrow-right.svg";
-import Logo from "../assets/logoblack.png";
-import MenuIcon from "@/assets/menu.svg";
-import { Button } from "@/components/ui/button";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import Logo from "../assets/logoblack.png";
+import MenuIcon from "@/assets/menu.svg";
 
 export const Header = () => {
-  const router = useRouter();
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
 
-  const scrollToSection = (sectionId: string) => {
-    router.push(`/#${sectionId}`);
+  // Toggle dropdowns
+  const toggleDropdown = (menu: string) => {
+    setActiveDropdown(activeDropdown === menu ? null : menu);
   };
+
+  // Close dropdowns and mobile menu when clicking outside
+  useEffect(() => {
+    const closeDropdown = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setActiveDropdown(null);
+        setIsMobileMenuOpen(false);
+      }
+    };
+    document.addEventListener("click", closeDropdown);
+    return () => document.removeEventListener("click", closeDropdown);
+  }, []);
+
+  // Prevent click events inside dropdowns or mobile menu from closing it
+  const stopPropagation = (e: React.MouseEvent) => e.stopPropagation();
 
   return (
     <header className="sticky top-0 backdrop-blur-sm z-20">
       <div className="py-5">
-        <div className="container">
+        <div className="container mx-auto px-4">
           <div className="flex items-center justify-between">
-            <Image src={Logo} alt="Saas Logo" height={50} width={50} />
-            <MenuIcon className="size-4 md:hidden" />
-            <nav className="hidden md:flex gap-6 text-black/60 items-center">
-              <button onClick={() => scrollToSection("about")}>Who we are</button>
-              <button onClick={() => scrollToSection("features")}>
-                Insights
-              </button>
-              <button onClick={() => scrollToSection("work")}>What we do</button>
-              <button onClick={() => scrollToSection("customers")}>
-                Clients
-              </button>
-              <button onClick={() => scrollToSection("contact")}>
-                Contact
-              </button>
+            {/* Logo */}
+            <Link href="/">
+              <Image src={Logo} alt="Logo" height={50} width={50} />
+            </Link>
+
+            {/* Hamburger Icon for Mobile */}
+            <button
+              onClick={(e) => {
+                stopPropagation(e);
+                setIsMobileMenuOpen(!isMobileMenuOpen);
+              }}
+              className="md:hidden"
+            >
+              <MenuIcon className="size-4" />
+            </button>
+
+            {/* Navigation Menu */}
+            <nav
+              ref={menuRef}
+              className={`${
+                isMobileMenuOpen ? "inline-block" : "hidden"
+              } md:flex gap-6 items-center`}
+              onClick={stopPropagation}
+            >
+              {/* Dropdown - Who We Are */}
+              <div
+                className="relative"
+                onClick={(e) => {
+                  stopPropagation(e);
+                  toggleDropdown("whoWeAre");
+                }}
+              >
+                <button className="flex items-center gap-2 text-black">
+                  Who we are <span>{activeDropdown === "whoWeAre" ? "^" : ">"}</span>
+                </button>
+                {activeDropdown === "whoWeAre" && (
+                  <div
+                    className="absolute bg-white shadow-lg rounded-md mt-2 border w-48"
+                    onClick={stopPropagation}
+                  >
+                    <Link href="/about-us">
+                      <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer">About Us</div>
+                    </Link>
+                    <Link href="/team">
+                      <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Our Team</div>
+                    </Link>
+                  </div>
+                )}
+              </div>
+
+              {/* Dropdown - Insights */}
+              <div
+                className="relative"
+                onClick={(e) => {
+                  stopPropagation(e);
+                  toggleDropdown("features");
+                }}
+              >
+                <button className="flex items-center gap-2 text-black">
+                  Features <span>{activeDropdown === "features" ? "^" : ">"}</span>
+                </button>
+                {activeDropdown === "features" && (
+                  <div
+                    className="absolute bg-white shadow-lg rounded-md mt-2 border w-48"
+                    onClick={stopPropagation}
+                  >
+                    <Link href="/features">
+                      <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Features</div>
+                    </Link>
+                    <Link href="/insights/news">
+                      <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer">News</div>
+                    </Link>
+                  </div>
+                )}
+              </div>
+
+              {/* Dropdown - What We Do */}
+              <div
+                className="relative"
+                onClick={(e) => {
+                  stopPropagation(e);
+                  toggleDropdown("whatWeDo");
+                }}
+              >
+                <button className="flex items-center gap-2 text-black">
+                  What we do <span>{activeDropdown === "whatWeDo" ? "^" : ">"}</span>
+                </button>
+                {activeDropdown === "whatWeDo" && (
+                  <div
+                    className="absolute bg-white shadow-lg rounded-md mt-2 border w-48"
+                    onClick={stopPropagation}
+                  >
+                    <Link href="/what-we-do/industries">
+                      <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Industries</div>
+                    </Link>
+                    <Link href="/what-we-do/services">
+                      <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Services</div>
+                    </Link>
+                    <Link href="/what-we-do/products">
+                      <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Products</div>
+                    </Link>
+                  </div>
+                )}
+              </div>
+
+              {/* Simple Links */}
+              <Link href="/projects">
+                <div className="text-black">Projects</div>
+              </Link>
+              <Link href="/contact">
+                <div className="text-black">Contact</div>
+              </Link>
             </nav>
           </div>
         </div>
@@ -40,6 +154,8 @@ export const Header = () => {
     </header>
   );
 };
+
+
 // "use client";
 // import ArrowRight from "@/assets/arrow-right.svg";
 // import Logo from "../assets/logoblack.png";
