@@ -20,6 +20,9 @@ export const Footer = () => {
           <Link href='customers'>Customers</Link>
           <Link href='updates'>Updates</Link>
           <Link href='help'>Help</Link>
+          <Link href='privacy'>Privacy</Link>
+          <Link href='terms'>Term & Conditions</Link>
+          <Link href='cancellation'>Cancellation & Refunds</Link>
         </nav>
         <div className="flex justify-center gap-6 mt-6">
           <SocialX />
