@@ -138,7 +138,7 @@ export const TermsAndConditions = () => {
 
             <h2 className="font-bold text-gray-800">Limitation of Liability</h2>
             <p>
-              The Company's liability is limited to the amount paid by you
+              The Company&apos;s liability is limited to the amount paid by you
               through the Service or 100 USD if no payment was made. The Company
               is not liable for indirect damages, including data loss or
               interruption.
@@ -164,7 +164,7 @@ export const TermsAndConditions = () => {
             </h2>
             <p>
               We reserve the right to modify these Terms at our sole discretion.
-              If a revision is material, we will provide at least 30 days'
+              If a revision is material, we will provide at least 30 days&apos;
               notice. By continuing to use the Service, you agree to the updated
               Terms.
             </p>
