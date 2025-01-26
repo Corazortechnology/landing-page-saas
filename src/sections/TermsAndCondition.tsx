@@ -66,9 +66,9 @@ export const TermsAndConditions = () => {
               <li>
                 <strong>Affiliate:</strong>means an entity that controls, is
                 controlled by or is under common control with a party, where
-                "control" means ownership of 50% or more of the shares, equity
-                interest or other securities entitled to vote for election of
-                directors or other managing authority.
+                &quot;control&quot; means ownership of 50% or more of the
+                shares, equity interest or other securities entitled to vote for
+                election of directors or other managing authority.
               </li>
               <li>
                 <strong>Country:</strong> Uttar Pradesh, India.
@@ -145,12 +145,12 @@ export const TermsAndConditions = () => {
             </p>
 
             <h2 className="font-bold text-gray-800">
-              "AS IS" and "AS AVAILABLE" Disclaimer
+              &quot;AS IS&quot; and &quot;AS AVAILABLE&quot; Disclaimer
             </h2>
             <p>
-              The Service is provided "AS IS" without warranties of any kind.
-              The Company does not guarantee uninterrupted or error-free
-              services.
+              The Service is provided &quot;AS IS&quot; without warranties of
+              any kind. The Company does not guarantee uninterrupted or
+              error-free services.
             </p>
 
             <h2 className="font-bold text-gray-800">Governing Law</h2>

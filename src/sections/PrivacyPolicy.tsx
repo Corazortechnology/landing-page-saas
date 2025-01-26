@@ -68,10 +68,10 @@ export const PrivacyPolicy = () => {
             <h2>Interpretation and Definitions</h2>
             <h3>Interpretation</h3>
             <p>
-              The words of which the initial letter is capitalized have
-              meanings defined under the following conditions. The following
-              definitions shall have the same meaning regardless of whether
-              they appear in singular or in plural.
+              The words of which the initial letter is capitalized have meanings
+              defined under the following conditions. The following definitions
+              shall have the same meaning regardless of whether they appear in
+              singular or in plural.
             </p>
             <h3>Definitions</h3>
             <ul>
@@ -82,19 +82,20 @@ export const PrivacyPolicy = () => {
               <li>
                 <strong>Affiliate</strong> means an entity that controls, is
                 controlled by or is under common control with a party, where
-                "control" means ownership of 50% or more of the shares, equity
-                interest or other securities entitled to vote for election of
-                directors or other managing authority.
+                &quot;control&quot; means ownership of 50% or more of the
+                shares, equity interest or other securities entitled to vote for
+                election of directors or other managing authority.
               </li>
               <li>
-                <strong>Company</strong> (referred to as either "the Company",
-                "We", "Us" or "Our" in this Agreement) refers to CORAZOR
-                TECHNOLOGY PRIVATE LIMITED, 14/1455-37, GHANTA GHAR, TRILOK
-                CHAND JAIN MARKET, Saharanpur, Saharanpur, Uttar Pradesh-247001.
+                <strong>Company</strong> (referred to as either &quot;the
+                Company&quot;, &quot;We&quot;, &quot;Us&quot; or &quot;Our&quot;
+                in this Agreement) refers to CORAZOR TECHNOLOGY PRIVATE LIMITED,
+                14/1455-37, GHANTA GHAR, TRILOK CHAND JAIN MARKET, Saharanpur,
+                Saharanpur, Uttar Pradesh-247001.
               </li>
               <li>
-                <strong>Cookies</strong> are small files that are placed on
-                Your computer, mobile device or any other device by a website,
+                <strong>Cookies</strong> are small files that are placed on Your
+                computer, mobile device or any other device by a website,
                 containing the details of Your browsing history on that website
                 among its many uses.
               </li>
@@ -134,8 +135,8 @@ export const PrivacyPolicy = () => {
                 </a>
               </li>
               <li>
-                <strong>You</strong> means the individual accessing or using
-                the Service, or the company, or other legal entity on behalf of
+                <strong>You</strong> means the individual accessing or using the
+                Service, or the company, or other legal entity on behalf of
                 which such individual is accessing or using the Service, as
                 applicable.
               </li>

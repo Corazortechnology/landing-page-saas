@@ -68,18 +68,19 @@ export const ReturnAndRefundPolicy = () => {
             <h2>Interpretation and Definitions</h2>
             <h3>Interpretation</h3>
             <p>
-              The words of which the initial letter is capitalized have
-              meanings defined under the following conditions. The following
-              definitions shall have the same meaning regardless of whether
-              they appear in singular or in plural.
+              The words of which the initial letter is capitalized have meanings
+              defined under the following conditions. The following definitions
+              shall have the same meaning regardless of whether they appear in
+              singular or in plural.
             </p>
             <h3>Definitions</h3>
             <ul>
               <li>
-                <strong>Company</strong> (referred to as either "the Company",
-                "We", "Us" or "Our" in this Agreement) refers to CORAZOR
-                TECHNOLOGY PRIVATE LIMITED, 14/1455-37, GHANTA GHAR, TRILOK
-                CHAND JAIN MARKET, Saharanpur, Saharanpur, Uttar Pradesh-247001.
+                <strong>Company</strong> (referred to as either &quot;the
+                Company&quot;, &quot;We&quot;, &quot;Us&quot; or &quot;Our&quot;
+                in this Agreement) refers to CORAZOR TECHNOLOGY PRIVATE LIMITED,
+                14/1455-37, GHANTA GHAR, TRILOK CHAND JAIN MARKET, Saharanpur,
+                Saharanpur, Uttar Pradesh-247001.
               </li>
               <li>
                 <strong>Goods</strong> refer to the items offered for sale on
@@ -105,8 +106,8 @@ export const ReturnAndRefundPolicy = () => {
                 </a>
               </li>
               <li>
-                <strong>You</strong> means the individual accessing or using
-                the Service, or the company, or other legal entity on behalf of
+                <strong>You</strong> means the individual accessing or using the
+                Service, or the company, or other legal entity on behalf of
                 which such individual is accessing or using the Service, as
                 applicable.
               </li>
@@ -114,14 +115,14 @@ export const ReturnAndRefundPolicy = () => {
 
             <h2>Your Order Cancellation Rights</h2>
             <p>
-              You are entitled to cancel Your Order within 7 days without
-              giving any reason for doing so.
+              You are entitled to cancel Your Order within 7 days without giving
+              any reason for doing so.
             </p>
             <p>
               The deadline for cancelling an Order is 7 days from the date on
               which You received the Goods or on which a third party you have
-              appointed, who is not the carrier, takes possession of the
-              product delivered.
+              appointed, who is not the carrier, takes possession of the product
+              delivered.
             </p>
             <p>
               In order to exercise Your right of cancellation, You must inform
@@ -142,8 +143,8 @@ export const ReturnAndRefundPolicy = () => {
             <p>
               We will reimburse You no later than 14 days from the day on which
               We receive the returned Goods. We will use the same means of
-              payment as You used for the Order, and You will not incur any
-              fees for such reimbursement.
+              payment as You used for the Order, and You will not incur any fees
+              for such reimbursement.
             </p>
 
             <h2>Conditions for Returns</h2>
@@ -181,9 +182,9 @@ export const ReturnAndRefundPolicy = () => {
               does not meet the above return conditions in our sole discretion.
             </p>
             <p>
-              Only regular priced Goods may be refunded. Unfortunately, Goods
-              on sale cannot be refunded. This exclusion may not apply to You
-              if it is not permitted by applicable law.
+              Only regular priced Goods may be refunded. Unfortunately, Goods on
+              sale cannot be refunded. This exclusion may not apply to You if it
+              is not permitted by applicable law.
             </p>
 
             <h2>Contact Us</h2>
