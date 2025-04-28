@@ -4,11 +4,38 @@ import Image from "next/image";
 import Link from "next/link";
 import Logo from "../assets/logoblack.png";
 import MenuIcon from "@/assets/menu.svg";
+import { useRouter } from "next/navigation";
 
 export const Header = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userInfo, setUserInfo] = useState<string | null>(null);
   const menuRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
+
+  useEffect(() => {
+    const stored = localStorage.getItem("userInfo");
+    setUserInfo(stored);
+    setIsLoggedIn(!!stored);
+  
+    const handleUserInfoChange = () => {
+      const updated = localStorage.getItem("userInfo");
+      setUserInfo(updated);
+      setIsLoggedIn(!!updated);
+    };
+  
+    window.addEventListener("userInfoChanged", handleUserInfoChange);
+  
+    return () => {
+      window.removeEventListener("userInfoChanged", handleUserInfoChange);
+    };
+  }, []);
+  
+  // Now userInfo is in React state, you can watch it
+  useEffect(() => {
+    setIsLoggedIn(!!userInfo);
+  }, [userInfo]);
 
   // Toggle dropdowns
   const toggleDropdown = (menu: string) => {
@@ -26,6 +53,12 @@ export const Header = () => {
     document.addEventListener("click", closeDropdown);
     return () => document.removeEventListener("click", closeDropdown);
   }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("userInfo");
+    setIsLoggedIn(false);
+    router.push("/signin");
+  };
 
   // Prevent click events inside dropdowns or mobile menu from closing it
   const stopPropagation = (e: React.MouseEvent) => e.stopPropagation();
@@ -68,7 +101,8 @@ export const Header = () => {
                 }}
               >
                 <button className="flex items-center gap-2 text-black">
-                  Who we are <span>{activeDropdown === "whoWeAre" ? "^" : ">"}</span>
+                  Who we are{" "}
+                  <span>{activeDropdown === "whoWeAre" ? "^" : ">"}</span>
                 </button>
                 {activeDropdown === "whoWeAre" && (
                   <div
@@ -76,10 +110,14 @@ export const Header = () => {
                     onClick={stopPropagation}
                   >
                     <Link href="/about-us">
-                      <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer">About Us</div>
+                      <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                        About Us
+                      </div>
                     </Link>
                     <Link href="/team">
-                      <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Our Team</div>
+                      <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                        Our Team
+                      </div>
                     </Link>
                   </div>
                 )}
@@ -94,7 +132,8 @@ export const Header = () => {
                 }}
               >
                 <button className="flex items-center gap-2 text-black">
-                  Features <span>{activeDropdown === "features" ? "^" : ">"}</span>
+                  Features{" "}
+                  <span>{activeDropdown === "features" ? "^" : ">"}</span>
                 </button>
                 {activeDropdown === "features" && (
                   <div
@@ -102,10 +141,14 @@ export const Header = () => {
                     onClick={stopPropagation}
                   >
                     <Link href="/features">
-                      <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Features</div>
+                      <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                        Features
+                      </div>
                     </Link>
                     <Link href="/insights/news">
-                      <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer">News</div>
+                      <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                        News
+                      </div>
                     </Link>
                   </div>
                 )}
@@ -120,7 +163,8 @@ export const Header = () => {
                 }}
               >
                 <button className="flex items-center gap-2 text-black">
-                  What we do <span>{activeDropdown === "whatWeDo" ? "^" : ">"}</span>
+                  What we do{" "}
+                  <span>{activeDropdown === "whatWeDo" ? "^" : ">"}</span>
                 </button>
                 {activeDropdown === "whatWeDo" && (
                   <div
@@ -128,13 +172,19 @@ export const Header = () => {
                     onClick={stopPropagation}
                   >
                     <Link href="/what-we-do/industries">
-                      <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Industries</div>
+                      <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                        Industries
+                      </div>
                     </Link>
                     <Link href="/what-we-do/services">
-                      <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Services</div>
+                      <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                        Services
+                      </div>
                     </Link>
                     <Link href="/what-we-do/products">
-                      <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Products</div>
+                      <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                        Products
+                      </div>
                     </Link>
                   </div>
                 )}
@@ -147,6 +197,23 @@ export const Header = () => {
               <Link href="/contact">
                 <div className="text-black">Contact</div>
               </Link>
+              <Link href="/careers">
+                <div className="text-black">Careers</div>
+              </Link>
+              {isLoggedIn ? (
+                <button
+                  onClick={handleLogout}
+                  className="text-black font-semibold border border-black px-4 py-2 rounded hover:bg-black hover:text-white transition"
+                >
+                  Logout
+                </button>
+              ) : (
+                <Link href="/signin">
+                  <div className="text-black font-semibold border border-black px-4 py-2 rounded hover:bg-black hover:text-white transition">
+                    Sign In
+                  </div>
+                </Link>
+              )}
             </nav>
           </div>
         </div>
@@ -154,7 +221,6 @@ export const Header = () => {
     </header>
   );
 };
-
 
 // "use client";
 // import ArrowRight from "@/assets/arrow-right.svg";

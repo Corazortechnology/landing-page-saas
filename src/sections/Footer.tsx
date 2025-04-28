@@ -23,6 +23,7 @@ export const Footer = () => {
           <Link href='privacy'>Privacy</Link>
           <Link href='terms'>Term & Conditions</Link>
           <Link href='cancellation'>Cancellation & Refunds</Link>
+          <Link href='/careers'>Careers</Link>
         </nav>
         <div className="flex justify-center gap-6 mt-6">
           <SocialX />
