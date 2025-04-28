@@ -16,6 +16,8 @@ export const CallToAction = () => {
   });
   const translateY = useTransform(scrollYProgress, [0, 1], [200, -200]);
 
+  const [loading, setLoading] = useState(false);
+
   // State to manage form fields
   const [formData, setFormData] = useState({
     name: "",
@@ -31,6 +33,7 @@ export const CallToAction = () => {
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
+    setLoading(true); 
 
     try {
       const response = await fetch(
@@ -63,6 +66,9 @@ export const CallToAction = () => {
     } catch (error) {
       console.error("Error submitting form:", error);
       alert("Something went wrong");
+    }
+    finally {
+      setLoading(false); // Set loading state to false after the fetch is completed
     }
   };
 
@@ -187,8 +193,13 @@ export const CallToAction = () => {
             <button
               type="submit"
               className="bg-black text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300"
+              disabled={loading}
             >
-              Submit
+              {loading ? (
+                <div className="loader"></div> // Show loader when submitting
+              ) : (
+                "Submit"
+              )}
             </button>
           </div>
         </form>
@@ -208,7 +219,22 @@ export const CallToAction = () => {
           className="absolute right-[-2px] top-82 md:block hidden"
           style={{ translateY: translateY }}
         />
-      </div>
+        </div>
+         <style jsx>{`
+        .loader {
+          border: 4px solid transparent;
+          border-top: 4px solid #333;
+          border-radius: 50%;
+          width: 24px;
+          height: 24px;
+          animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+      `}</style>
     </section>
   );
 };

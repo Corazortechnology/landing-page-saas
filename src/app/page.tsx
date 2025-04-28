@@ -7,6 +7,7 @@ import { Projects } from "@/sections/Projects";
 import { Features } from "@/sections/Features";
 import { About } from "@/sections/About";
 import { Testimonials } from "@/sections/Testimonials";
+import SignIn from "@/sections/SignIn";
 
 export default function Home() {
   return (
