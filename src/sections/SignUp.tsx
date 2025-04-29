@@ -28,7 +28,7 @@ export default function SignupWithOtp() {
 
     try {
       const response = await fetch(
-        "https://contact-backend-fgjp.onrender.com/api/v1/otp/send-otp",
+        "https://contact-backend-corazor.onrender.com/api/v1/otp/send-otp",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -61,7 +61,7 @@ export default function SignupWithOtp() {
     try {
       // Step 1: Verify OTP
       const verifyResponse = await fetch(
-        "https://contact-backend-fgjp.onrender.com/api/v1/otp/verify-otp",
+        "https://contact-backend-corazor.onrender.com/api/v1/otp/verify-otp",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -77,7 +77,7 @@ export default function SignupWithOtp() {
 
       // Step 2: Register User after successful OTP
       const registerResponse = await fetch(
-        "https://contact-backend-fgjp.onrender.com/api/v1/users/signup",
+        "https://contact-backend-corazor.onrender.com/api/v1/users/signup",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
